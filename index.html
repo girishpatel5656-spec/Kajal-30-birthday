@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kajal turns 30 🎂</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#120812;color:#fff;overflow-x:hidden}
+body{min-height:100vh}
+button{font:inherit}
+#app{min-height:100vh;display:grid;place-items:center;padding:22px;position:relative;overflow:hidden}
+#stars,#confetti{position:fixed;inset:0;pointer-events:none;z-index:20}
+.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.65;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{to{opacity:.12;transform:scale(.4)}}
+.orb{position:fixed;border-radius:50%;filter:blur(60px);opacity:.3;pointer-events:none}
+.o1{width:260px;height:260px;background:#ff4f9a;top:-80px;left:-80px}
+.o2{width:300px;height:300px;background:#8c4dff;right:-100px;bottom:-100px}
+.screen{display:none;width:min(720px,100%);min-height:min(760px,calc(100vh - 44px));position:relative;z-index:2;text-align:center;align-content:center;justify-items:center}
+.screen.active{display:grid;animation:in .65s ease both}
+@keyframes in{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+.kicker{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#f5a7cd;font-weight:800}
+h1{font-size:clamp(52px,14vw,105px);line-height:.9;margin:18px 0 10px}
+h2{font-size:clamp(34px,8vw,64px);margin:10px 0}
+.gradient{background:linear-gradient(90deg,#fff,#ff8bc1,#caa8ff,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{max-width:560px;color:#e9d9e5;line-height:1.65;font-size:17px}
+.btn{margin-top:25px;border:1px solid #ffffff33;background:#ffffff12;color:#fff;padding:14px 23px;border-radius:999px;cursor:pointer;backdrop-filter:blur(8px);box-shadow:0 10px 35px #0005;transition:.2s}
+.btn:hover{transform:translateY(-2px);background:#ffffff20}
+.age{font-size:clamp(110px,30vw,220px);font-weight:1000;line-height:.78;text-shadow:0 0 50px #ff5ea888}
+.cake{font-size:100px;cursor:pointer;filter:drop-shadow(0 0 25px #ff70b555);animation:float 2s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.hint{color:#c9b5c4;font-size:13px;margin-top:15px}
+.card{width:min(610px,100%);padding:32px;border-radius:32px;background:linear-gradient(145deg,#ffffff13,#ffffff06);border:1px solid #ffffff1b;box-shadow:0 25px 90px #0007;backdrop-filter:blur(15px)}
+.quote{font-size:21px;line-height:1.65}
+.joke{margin:20px 0;padding:18px;border-radius:20px;background:#ff4f9a12;border:1px solid #ff8bc133;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;width:100%;max-width:560px;margin:20px 0}
+.tile{padding:20px 14px;border:1px solid #ffffff18;background:#ffffff0b;border-radius:22px;transition:.25s}
+.tile:hover{transform:translateY(-4px);background:#ffffff12}
+.icon{font-size:30px}.tile b{display:block;margin-top:8px}.tile span{font-size:12px;color:#cdbccc}
+.envelope{font-size:110px;cursor:pointer;filter:drop-shadow(0 0 25px #ff70b566);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{transform:scale(1.04)}}
+.letter{display:none;text-align:left;margin-top:20px;animation:in .6s ease}
+.letter.show{display:block}
+.letter p{line-height:1.8;color:#eadde6}
+.signature{text-align:right;color:#ff9aca;font-weight:700}
+.final{font-size:clamp(25px,6vw,48px);line-height:1.25}
+.music{position:fixed;right:15px;top:15px;z-index:30;border:1px solid #ffffff22;background:#ffffff10;color:#fff;border-radius:50%;width:42px;height:42px;cursor:pointer}
+.conf{position:fixed;top:-30px;font-size:20px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(115vh) rotate(700deg);opacity:0}}
+.progress{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:30}
+.dot{width:7px;height:7px;border-radius:50%;background:#ffffff35}.dot.on{background:#ff86bc;box-shadow:0 0 12px #ff86bc}
+@media(max-width:520px){.grid{grid-template-columns:1fr 1fr}.card{padding:25px 19px}.sub{font-size:15px}}
+</style>
+</head>
+<body>
+<div id="app">
+ <div class="orb o1"></div><div class="orb o2"></div><div id="stars"></div><div id="confetti"></div>
+ <button class="music" onclick="toggleMusic()" aria-label="music">♫</button>
+
+ <section class="screen active">
+   <div>
+    <div class="kicker">⚠️ important birthday notification</div>
+    <h1 class="gradient">WAIT…</h1>
+    <p class="sub">Someone is about to turn <b>30</b>.<br>We need to investigate. 🔎</p>
+    <button class="btn" onclick="next()">Okay, I'm ready →</button>
+   </div>
+ </section>
+
+ <section class="screen">
+   <div>
+    <div class="kicker">the evidence is conclusive</div>
+    <div class="age gradient">30</div>
+    <h2>KAJAL.</h2>
+    <p class="sub">Congratulations. You have officially entered the age where you can give younger people life advice… <b>whether they asked for it or not.</b> 😂</p>
+    <button class="btn" onclick="next()">Accept my fate →</button>
+   </div>
+ </section>
+
+ <section class="screen">
+   <div>
+    <div class="kicker">birthday protocol</div>
+    <div class="cake" onclick="cake()">🎂</div>
+    <h2>Make a wish.</h2>
+    <p class="hint">Tap the cake to blow out the candles ✨</p>
+   </div>
+ </section>
+
+ <section class="screen">
+   <div class="card">
+    <div class="kicker">kajal's 30th year forecast</div>
+    <h2 class="gradient">More of this ↓</h2>
+    <div class="grid">
+      <div class="tile"><div class="icon">✈️</div><b>More travel</b><span>New places, new stories</span></div>
+      <div class="tile"><div class="icon">🍝</div><b>More food</b><span>Because calories don't count on trips</span></div>
+      <div class="tile"><div class="icon">😂</div><b>More laughter</b><span>Preferably at everyone else's expense</span></div>
+      <div class="tile"><div class="icon">❤️</div><b>More memories</b><span>The good, ridiculous kind</span></div>
+    </div>
+    <button class="btn" onclick="next()">One more thing →</button>
+   </div>
+ </section>
+
+ <section class="screen">
+   <div class="card">
+    <div class="kicker">a message from the birthday committee</div>
+    <div class="joke"><b>“I want nothing.”</b><br><br>Classic Kajal. 😌<br>So this isn't a gift… <b>technically.</b> 😂</div>
+    <p class="quote">But you do deserve a little reminder that you're loved, appreciated and very, very lucky to have people who will still tolerate you at 30. ❤️</p>
+    <button class="btn" onclick="next()">Open the actual message 💌</button>
+   </div>
+ </section>
+
+ <section class="screen">
+   <div>
+    <div class="envelope" onclick="openLetter()">💌</div>
+    <p class="hint">Tap the envelope</p>
+    <div id="letter" class="card letter">
+      <h2>Dear Kajal,</h2>
+      <p>Happy 30th Birthday! 🎂❤️</p>
+      <p>Here's to a decade filled with beautiful journeys, amazing food, spontaneous plans, endless laughter and memories that you'll keep talking about for years.</p>
+      <p>May you always have a reason to pack your bags, a place worth travelling to, something delicious waiting for you, and people around you who make every ordinary day a little more fun.</p>
+      <p>And yes… now that you're 30, we're all expecting some <b>very mature life advice</b> from you. No pressure. 😂</p>
+      <p class="signature">Happy Birthday, Kajal! 🥂✨</p>
+    </div>
+   </div>
+ </section>
+
+ <section class="screen">
+   <div>
+    <div class="kicker">case closed</div>
+    <div class="final gradient">Happy 30th,<br>Kajal! 🎉❤️</div>
+    <p class="sub">Now go eat something, plan a trip and pretend you're still 29. 😂</p>
+    <button class="btn" onclick="restart()">Replay from the beginning ↻</button>
+   </div>
+ </section>
+
+ <div class="progress" id="progress"></div>
+</div>
+
+<script>
+let idx=0, audio=null;
+const screens=[...document.querySelectorAll('.screen')], progress=document.getElementById('progress');
+screens.forEach((_,i)=>{let d=document.createElement('span');d.className='dot'+(i===0?' on':'');progress.appendChild(d)});
+function show(n){idx=n;screens.forEach((s,i)=>s.classList.toggle('active',i===n));[...progress.children].forEach((d,i)=>d.classList.toggle('on',i===n));if(n===1||n===6)confetti(25)}
+function next(){show(Math.min(idx+1,screens.length-1))}
+function restart(){show(0)}
+function cake(){confetti(100);setTimeout(next,900)}
+function openLetter(){document.getElementById('letter').classList.add('show');confetti(60)}
+function confetti(n=50){
+ const chars=['🎉','✨','💖','🎈','🌸','⭐','🎊'];
+ for(let i=0;i<n;i++){let e=document.createElement('div');e.className='conf';e.textContent=chars[Math.floor(Math.random()*chars.length)];e.style.left=Math.random()*100+'vw';e.style.fontSize=14+Math.random()*20+'px';e.style.animationDuration=2.2+Math.random()*3+'s';document.getElementById('confetti').appendChild(e);setTimeout(()=>e.remove(),5500)}
+}
+for(let i=0;i<90;i++){let s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*2+'s';document.getElementById('stars').appendChild(s)}
+function toggleMusic(){
+ if(!audio){audio=new Audio();audio.loop=true;audio.src='';}
+ // Browsers block generated audio without a file, so keep this button harmless.
+ alert('🎶 Add your favourite Kajal song here if you want music on the page!');
+}
+</script>
+</body>
+</html>
